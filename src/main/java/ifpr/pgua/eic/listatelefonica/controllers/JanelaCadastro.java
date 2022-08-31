@@ -18,14 +18,26 @@ public class JanelaCadastro {
     
     private VBox root;
     
+    /*Componente para mostrar um rótulo na tela. Geralmente
+     * é utilizado para identificar outro componente.
+     */
     private Label lbNome;
+
+    /*Componente para mostrar um campo de texto na tela. Permite
+     * ao usuário digitar dados no teclado.
+     */
     private TextField tfNome;
 
     private Label lbTelefone;
     private TextField tfTelefone;
 
+<<<<<<< HEAD
     private Label lbemail;
     private TextField tfemail;
+
+    private Label lbEmail;
+    private TextField tfEmail;
+>>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
 
     private Button btCadastrar;
     private Button btVoltar;
@@ -44,8 +56,13 @@ public class JanelaCadastro {
         lbTelefone = new Label("Telefone:");
         tfTelefone = new TextField();
 
+<<<<<<< HEAD
         lbemail = new Label("E-mail:");
         tfemail = new TextField();
+=======
+        lbEmail = new Label("E-mail:");
+        tfEmail = new TextField();
+>>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
 
         btCadastrar = new Button("Cadastrar");
         btCadastrar.setOnAction(this::cadastrar);
@@ -55,7 +72,7 @@ public class JanelaCadastro {
 
         HBox botoes = new HBox();
         botoes.getChildren().addAll(btVoltar,btCadastrar);
-
+        botoes.setSpacing(5.0);
 
         root = new VBox();
         root.setSpacing(5.0);
@@ -63,8 +80,12 @@ public class JanelaCadastro {
 
         root.getChildren().addAll(lbNome,tfNome);
         root.getChildren().addAll(lbTelefone,tfTelefone);
+<<<<<<< HEAD
         root.getChildren().addAll(lbemail, tfemail);
         
+=======
+        root.getChildren().addAll(lbEmail,tfEmail);
+>>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
         root.getChildren().add(botoes);
 
     }
@@ -75,10 +96,17 @@ public class JanelaCadastro {
     }
 
 
+    /*Método que será executado quando clicar no botão de cadastrar. */
     private void cadastrar(ActionEvent evento){
+
+        /*Pega o texto digitado pelo usuário e armazena em uma variável. */
         String nome = tfNome.getText();
         String telefone = tfTelefone.getText();
+<<<<<<< HEAD
         String email = tfemail.getText();
+=======
+        String email  = tfEmail.getText();
+>>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
 
         String msg = "Cadastro realizado!";
         if(!listaTelefonica.adicionarContato(nome, telefone, email)){
@@ -96,7 +124,11 @@ public class JanelaCadastro {
     private void limpar(){
         tfNome.clear();
         tfTelefone.clear();
+<<<<<<< HEAD
         tfemail.clear();
+=======
+        tfEmail.clear();
+>>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
     }
 
     private void voltar(ActionEvent evento){
