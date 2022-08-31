@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
 
 public class JanelaCadastro {
     
-    private VBox root;
+    public VBox root;
     
     /*Componente para mostrar um rótulo na tela. Geralmente
      * é utilizado para identificar outro componente.
@@ -26,18 +26,18 @@ public class JanelaCadastro {
     /*Componente para mostrar um campo de texto na tela. Permite
      * ao usuário digitar dados no teclado.
      */
-    private TextField tfNome;
+    @FXML
+     private TextField tfNome;
 
     private Label lbTelefone;
+    @FXML
     private TextField tfTelefone;
 
-<<<<<<< HEAD
-    private Label lbemail;
-    private TextField tfemail;
 
     private Label lbEmail;
+    @FXML
     private TextField tfEmail;
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
+
 
     private Button btCadastrar;
     private Button btVoltar;
@@ -46,67 +46,19 @@ public class JanelaCadastro {
 
     public JanelaCadastro(ListaTelefonica listaTelefonica){
         this.listaTelefonica = listaTelefonica;
-        inicializaComponentes();
+       
     }
 
-    private void inicializaComponentes(){
-        lbNome = new Label("Nome:");
-        tfNome = new TextField();
-
-        lbTelefone = new Label("Telefone:");
-        tfTelefone = new TextField();
-
-<<<<<<< HEAD
-        lbemail = new Label("E-mail:");
-        tfemail = new TextField();
-=======
-        lbEmail = new Label("E-mail:");
-        tfEmail = new TextField();
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
-
-        btCadastrar = new Button("Cadastrar");
-        btCadastrar.setOnAction(this::cadastrar);
-
-        btVoltar = new Button("Voltar");
-        btVoltar.setOnAction(this::voltar);
-
-        HBox botoes = new HBox();
-        botoes.getChildren().addAll(btVoltar,btCadastrar);
-        botoes.setSpacing(5.0);
-
-        root = new VBox();
-        root.setSpacing(5.0);
-        root.setPadding(new Insets(20));
-
-        root.getChildren().addAll(lbNome,tfNome);
-        root.getChildren().addAll(lbTelefone,tfTelefone);
-<<<<<<< HEAD
-        root.getChildren().addAll(lbemail, tfemail);
-        
-=======
-        root.getChildren().addAll(lbEmail,tfEmail);
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
-        root.getChildren().add(botoes);
-
-    }
-    
-
-    public Parent getRoot(){
-        return root;
-    }
-
-
-    /*Método que será executado quando clicar no botão de cadastrar. */
+    @FXML
     private void cadastrar(ActionEvent evento){
 
         /*Pega o texto digitado pelo usuário e armazena em uma variável. */
         String nome = tfNome.getText();
         String telefone = tfTelefone.getText();
-<<<<<<< HEAD
-        String email = tfemail.getText();
-=======
-        String email  = tfEmail.getText();
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
+        String email = tfEmail.getText();
+
+       
+
 
         String msg = "Cadastro realizado!";
         if(!listaTelefonica.adicionarContato(nome, telefone, email)){
@@ -124,13 +76,11 @@ public class JanelaCadastro {
     private void limpar(){
         tfNome.clear();
         tfTelefone.clear();
-<<<<<<< HEAD
-        tfemail.clear();
-=======
-        tfEmail.clear();
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
-    }
 
+        tfEmail.clear();
+
+    }
+    @FXML
     private void voltar(ActionEvent evento){
         App.popScreen();
     }

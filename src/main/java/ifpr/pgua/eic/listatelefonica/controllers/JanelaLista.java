@@ -1,10 +1,14 @@
 package ifpr.pgua.eic.listatelefonica.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import ifpr.pgua.eic.listatelefonica.App;
 import ifpr.pgua.eic.listatelefonica.models.Contato;
 import ifpr.pgua.eic.listatelefonica.models.ListaTelefonica;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -17,73 +21,40 @@ import javafx.scene.layout.VBox;
 /**
  * Tela para mostar a lista de contatos.
  */
-public class JanelaLista {
+public class JanelaLista implements Initializable{
 
-    private HBox root;
+   
 
     /*Componente utilizado para mostra o conteúdo de uma lista (ArrayList). Precisa
      * especificar qual tipo de objeto será mostrado. O item da lista utiliza o toString 
      * do objeto mostrado.
      */
-    private ListView<Contato> ltvContatos;
+    @FXML
+     private ListView<Contato> ltvContatos;
     /*Área de texto. Semelhante ao TextField, porém com várias linhas. */
+    @FXML
     private TextArea taDetalhes;
 
-    private Button btVoltar;
 
     private ListaTelefonica listaTelefonica;
 
     public JanelaLista(ListaTelefonica listaTelefonica){
         this.listaTelefonica = listaTelefonica;
-        inicializaComponentes();
-        carregaDados();
+        
+        
     }
 
-    private void inicializaComponentes(){
-        
-        ltvContatos = new ListView<>();
-        /*Cria um ação ao clicar com o mouse em um item da lista. Toda vez que for
-         * clicado executa o método mostraDetalhes. Semelhante ao onAction de um botão.
-         */
-        ltvContatos.setOnMouseClicked(this::mostraDetalhes);
-        
-        taDetalhes = new TextArea();
-        taDetalhes.setPrefWidth(200.0);
-
-        btVoltar = new Button("Voltar");
-        btVoltar.setOnAction(this::voltar);
-
-<<<<<<< HEAD
-        VBox box= new VBox();
-        box.setSpacing(10.0);
-
-        box.getChildren().addAll(ltvContatos, btVoltar);
-=======
-        /*Utilizado para organizar parte dos componentes da tela de forma vertical. */
-        VBox box = new VBox();
-        box.setSpacing(10.0);
-
-        box.getChildren().addAll(ltvContatos,btVoltar);
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
-
-        root = new HBox();
-        root.setSpacing(10.0);
-        root.setPadding(new Insets(20));
-<<<<<<< HEAD
-        root.getChildren().addAll(box, taDetalhes);
-=======
-        root.getChildren().addAll(box,taDetalhes);
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
-    }
+    
 
     /*Método utilizado para inicializar os dados no ListView */
-    private void carregaDados(){
+    public void initialize(URL arg0, ResourceBundle argl){
         ltvContatos.getItems().clear();
         /*Pega a lista de contatos e coloca dentro do ListView */
         ltvContatos.getItems().addAll(listaTelefonica.getContatos());
     }
 
     /*Método que será executado ao clicar em um item da lista. */
+    @FXML
     private void mostraDetalhes(MouseEvent evento){
         taDetalhes.clear();
         
@@ -93,20 +64,18 @@ public class JanelaLista {
         /*Mostra os detalhes do contato no TextArea */
         if(contato != null){
             taDetalhes.appendText("Nome: "+contato.getNome()+"\n");
-<<<<<<< HEAD
+
             taDetalhes.appendText("Telefone: "+contato.getTelefone()+"\n");     
             taDetalhes.appendText("E-mail: "+contato.getEmail()+"\n");
-=======
+
             taDetalhes.appendText("Telefone: "+contato.getTelefone()+"\n");    
             taDetalhes.appendText("E-mail:"+contato.getEmail());
->>>>>>> 07c6d97e1763895f957ff2367f35c17a89f8dabe
+
         }
     }
 
-    public Parent getRoot(){
-        return root;
-    }
 
+    @FXML
     private void voltar(ActionEvent evento) {
         App.popScreen();
     }

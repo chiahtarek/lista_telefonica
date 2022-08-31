@@ -27,13 +27,14 @@ public class JanelaPrincipal {
         root = new HBox();
         root.setSpacing(10.0);
         root.setAlignment(Pos.CENTER);
-        root.setPrefSize(400, 600);
+        root.setPrefSize(600, 600);
 
         root.getChildren().addAll(btCadastro,btListar);
     }
 
     private void carregaTelaCadastro(ActionEvent evento){
         App.pushScreen("CADASTRO");
+
     }
 
     private void carregaTelaLista(ActionEvent evento){
